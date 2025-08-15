@@ -124,6 +124,19 @@
             font-size: 4rem;
             font-weight: 300;
             margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hero-image.placeholder {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
         }
 
         /* Section Styles */
@@ -140,47 +153,75 @@
         }
 
         /* Research Section */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .research-card {
+        .research-item {
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
             transition: all 0.3s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .research-card:hover {
-            transform: translateY(-4px);
+        .research-item:hover {
+            transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             border-color: var(--primary);
         }
 
-        .research-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .research-header h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--text);
+            line-height: 1.3;
         }
 
-        .research-card p {
+        .research-header .project-details {
             color: var(--text-light);
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
         }
 
-        .research-status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--primary);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
+        .research-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .research-text .project-details a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .research-text .project-details a:hover {
+            text-decoration: underline;
+        }
+
+        .research-text p {
+            color: var(--text);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .research-figure {
+            background: var(--bg-light);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .research-figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         /* Publications Section */
@@ -268,6 +309,15 @@
             .research-grid {
                 grid-template-columns: 1fr;
             }
+
+            .research-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .research-figure {
+                order: -1;
+            }
         }
 
         /* Smooth scrolling */
@@ -297,10 +347,11 @@
                         <h1>Luke Murray-Kearney</h1>
                         <p class="subtitle">Researcher & Academic</p>
                         <p class="description">
-                            Welcome to my research portfolio. I am passionate about advancing knowledge through rigorous research and innovative methodologies. Explore my current projects, publications, and academic contributions.
+                            I am a final-year PhD student in Applied Mathematics at the University of Warwick. My research interests lie in the field of Network Epidemiology. Currently, I am developing models to reconstruct social contact networks from real-world data for use in simulation of disease outbreaks.
                         </p>
                     </div>
-                    <div class="hero-image">
+                    <div class="hero-image placeholder">
+                        <!-- Replace this with your photo: <img src="path-to-your-photo.jpg" alt="Luke Murray-Kearney"> -->
                         LMK
                     </div>
                 </div>
@@ -309,22 +360,62 @@
 
         <section id="research">
             <div class="container">
-                <h2 class="section-title">Current Research</h2>
-                <div class="research-grid">
-                    <div class="research-card">
-                        <h3>Research Project Title 1</h3>
-                        <p>Brief description of your current research project. Highlight the key objectives, methodology, and expected outcomes. This section should give visitors a clear understanding of your work.</p>
-                        <span class="research-status">In Progress</span>
+                <h2 class="section-title">Research Projects</h2>
+                
+                <div class="research-item">
+                    <div class="research-header">
+                        <h3>Age-specific representations of social contact networks using egocentric survey data</h3>
+                        <p class="project-details">PhD Project (Oct 2023 - Present), supervised by <a href="#">Dr. Emma Davis</a> and <a href="#">Prof. Matt Keeling</a></p>
                     </div>
-                    <div class="research-card">
-                        <h3>Research Project Title 2</h3>
-                        <p>Another research project description. Explain the significance of this work and how it contributes to your field of study. Include any notable findings or preliminary results.</p>
-                        <span class="research-status">Published</span>
+                    <div class="research-content">
+                        <div class="research-text">
+                            <p>Add your description of this project here. Explain the objectives, methodology, key findings, and significance of your work on age-specific social contact networks and egocentric survey data.</p>
+                        </div>
+                        <div class="research-figure">
+                            <!-- Replace with your figure: <img src="path-to-figure1.jpg" alt="Age-specific contact networks visualization"> -->
+                            <div>
+                                <p><strong>Figure placeholder</strong></p>
+                                <p>Upload your research figure here</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="research-card">
-                        <h3>Research Project Title 3</h3>
-                        <p>Description of a third research area or collaborative project. Mention any partnerships with institutions or other researchers that enhance the scope of your work.</p>
-                        <span class="research-status">Under Review</span>
+                </div>
+
+                <div class="research-item">
+                    <div class="research-header">
+                        <h3>Evolving Predator-Prey Dynamics in Agent-Based Models of Collective Motion</h3>
+                        <p class="project-details">MSc group project (Mar 2023 - Jun 2023), supervised by <a href="#">Gareth Alexander</a> and <a href="#">Matthew Turner</a></p>
+                    </div>
+                    <div class="research-content">
+                        <div class="research-text">
+                            <p>Add your description of this MSc project here. Describe the agent-based modeling approach, predator-prey dynamics, and collective motion phenomena you investigated.</p>
+                        </div>
+                        <div class="research-figure">
+                            <!-- Replace with your figure: <img src="path-to-figure2.jpg" alt="Predator-prey dynamics simulation"> -->
+                            <div>
+                                <p><strong>Figure placeholder</strong></p>
+                                <p>Upload your research figure here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-item">
+                    <div class="research-header">
+                        <h3>How strong is the echo chamber? Examining the online discussion around the Irish Marriage Referendum</h3>
+                        <p class="project-details">BSc Dissertation (Sep 2021 - Apr 2022), supervised by <a href="#">Dr. David O'Sullivan</a></p>
+                    </div>
+                    <div class="research-content">
+                        <div class="research-text">
+                            <p>Add your description of this undergraduate dissertation here. Explain your analysis of online discussion patterns, echo chamber effects, and findings from the Irish Marriage Referendum case study.</p>
+                        </div>
+                        <div class="research-figure">
+                            <!-- Replace with your figure: <img src="path-to-figure3.jpg" alt="Network analysis of online discussion"> -->
+                            <div>
+                                <p><strong>Figure placeholder</strong></p>
+                                <p>Upload your research figure here</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
