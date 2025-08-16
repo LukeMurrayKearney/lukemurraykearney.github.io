@@ -222,6 +222,13 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .research-figure img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         /* Special layout for first research item */
@@ -258,6 +265,107 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .research-item.special-layout .full-width-figure img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .modal-caption {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text);
+            padding: 1rem 2rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 80vw;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
 
         /* Publications Section */
@@ -364,6 +472,27 @@
             .research-item.special-layout .research-figure {
                 order: -1;
             }
+
+            .modal-content {
+                max-width: 95vw;
+                max-height: 95vh;
+            }
+
+            .modal-image {
+                max-height: 70vh;
+            }
+
+            .modal-caption {
+                max-width: 90vw;
+                font-size: 0.9rem;
+            }
+
+            .modal-close {
+                top: -35px;
+                font-size: 1.5rem;
+                width: 40px;
+                height: 40px;
+            }
         }
 
         /* Smooth scrolling */
@@ -420,7 +549,7 @@
                                 <p>Epidemiologists often employ a well-mixed framework in their epidemic models, which assumes individuals in their population interact equally. However, contact networks have been commonly shown to be highly heterogeneous. Population heterogeneity can be difficult and expensive to accurately implement in the modelling process but its presence leads to drastically different epidemic outcomes.</p>
                             </div>
                             <div class="research-figure">
-                                <img src="degree_dist.png" alt="Degree distributions of social networks have been shown to have long (in many cases power-law) tails">
+                                <img src="degree_dist.png" alt="Degree distributions of social networks have been shown to have long (in many cases power-law) tails" class="clickable-image">
                                 <!-- Replace with your figure: <img src="path-to-figure1.jpg" alt="Age-specific contact networks visualization"> -->
                                 <!-- <div>
                                     <p><strong>Figure placeholder</strong></p>
@@ -432,7 +561,7 @@
                             <p>We created a standardised approach which takes routinely collected egocentric contact data and extrapolates that to a generic and robust algorithm utilizing artificial intelligence to generate a synthetic population that preserves both age-structured mixing and heterogeneity in the number of contacts. We then use these networks to simulate the spread of infection through the population, constrained to have a given basic reproduction number ($R_0$) and hence a given early growth rate. Given the over-dominant role that highly connected nodes (`superspreaders') would otherwise play in early dynamics, we scale transmission by the average duration of contacts, providing a better match to surveillance data for numbers of secondary cases. This network-based model shows that, for COVID-like parameters, including both heterogeneity and age-structure reduces both peak height and epidemic size compared to models that ignore heterogeneity. Our robust methodology therefore allows for the inclusion of the full wealth of data commonly collected by surveys but frequently overlooked to be incorporated into more realistic transmission models of infectious diseases.</p>
                         </div>
                         <div class="full-width-figure">
-                            <img src="egos_2_network.png" alt="Examples of individuals from the CoMix UK data set. The arrow represents being fed into our algorithm, resulting in 2 output networks from periods of COVID lockdown when schools are closed and open. Dots in these networks refer to people whos size corresponds to their number of contacts and colour to the age group they belong.">
+                            <img src="egos_2_network.png" alt="Examples of individuals from the CoMix UK data set. The arrow represents being fed into our algorithm, resulting in 2 output networks from periods of COVID lockdown when schools are closed and open. Dots in these networks refer to people whos size corresponds to their number of contacts and colour to the age group they belong." class="clickable-image">
                             <!-- Replace with your full-width figure: <img src="path-to-full-width-figure.jpg" alt="Network simulation results"> -->
                             <!-- <div>
                                 <p><strong>Full-width Figure placeholder</strong></p>
@@ -527,6 +656,15 @@
         </div>
     </footer>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div id="modalCaption" class="modal-caption"></div>
+        </div>
+    </div>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -550,6 +688,55 @@
             } else {
                 header.style.background = 'var(--bg)';
             }
+        });
+
+        // Image Modal Functionality
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalCaption = document.getElementById('modalCaption');
+        const closeBtn = document.querySelector('.modal-close');
+
+        // Function to open modal
+        function openModal(imageSrc, altText) {
+            modalImage.src = imageSrc;
+            modalCaption.textContent = altText;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Function to close modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Add click event listeners to all clickable images
+        document.querySelectorAll('.clickable-image').forEach(img => {
+            img.addEventListener('click', function() {
+                openModal(this.src, this.alt);
+            });
+        });
+
+        // Close modal when clicking the X button
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Prevent modal from closing when clicking on the modal content
+        document.querySelector('.modal-content').addEventListener('click', function(e) {
+            e.stopPropagation();
         });
     </script>
 </body>
