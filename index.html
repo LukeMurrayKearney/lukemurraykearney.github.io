@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Add this to your <head> section -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luke Murray Kearney | Research</title>
@@ -639,7 +642,7 @@
                         </div> -->
                     </div>
                     <div class="full-width-paragraph">
-                        <p>Community detection was implemented on the network to get a deeper understanding into the topological structure of the network. Further grouping of these communities using k-means clustering gives a singular partition into two clusters based on the communities respective aggregated sentiment. Two testing methods were used to quantify the relationship between the clustering and user affiliation. The first method was keyword density, finding a definite variation in relative keyword density between clusters allowing us to classify each cluster as yes or no. To evaluate the accuracy of our classification a random sample is taken of 358 voters who have been manually assigned their true voting preference, to see if our model matches the ground truth, giving an 89\% balanced accuracy. A re-scaling of the variables with their respective community size is implemented. This re-scaling increased polarisation in keyword density scores and balanced accuracy to 95\%. If the communities contained ideologically heterogeneous users this type of ground truth testing wouldn't be accurate. This homogeneity shows political homophily inside communities and the formation of strong echo chambers of ideologically similar individuals.</p>
+                        <p>Community detection was implemented on the network to get a deeper understanding into the topological structure of the network. Further grouping of these communities using k-means clustering gives a singular partition into two clusters based on the communities respective aggregated sentiment. Two testing methods were used to quantify the relationship between the clustering and user affiliation. The first method was keyword density, finding a definite variation in relative keyword density between clusters allowing us to classify each cluster as yes or no. To evaluate the accuracy of our classification a random sample is taken of 358 voters who have been manually assigned their true voting preference, to see if our model matches the ground truth, giving an 89% balanced accuracy. A re-scaling of the variables with their respective community size is implemented. This re-scaling increased polarisation in keyword density scores and balanced accuracy to 95%. If the communities contained ideologically heterogeneous users this type of ground truth testing wouldn't be accurate. This homogeneity shows political homophily inside communities and the formation of strong echo chambers of ideologically similar individuals.</p>
                     </div>
                     <div class="full-width-figure">
                         <img src="twitter_clusters.png" alt="After implementing the Louvain method the resulting communities were clustered by their sentiment scores. Positive and negative clusters are then used to predict users voting patterns against ground truth individuals." class="clickable-image">
